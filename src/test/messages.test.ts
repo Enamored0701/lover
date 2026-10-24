@@ -1,0 +1,6 @@
+import { expect, it } from "vitest";
+import { initialState } from "@/lib/store";
+import { answerQuiz, messageBody } from "@/lib/messages";
+it("uses real text in notification bodies", () => { expect(messageBody({ id: "1", at: 0, who: "him", type: "text", text: "我在这里等你。" })).toBe("我在这里等你。"); });
+for (const who of ["me", "him"] as const) it(`records ${who}'s choice on the original question`, () => { const s = initialState(); s.msgs.push({ id: "q", at: 0, who: "me", type: "quiz", quiz: { id: "q1", q: "下一站？", options: ["海边", "山间"], multi: false } }); answerQuiz(s, "q", who, ["海边", "山间"]); expect(s.msgs[0]?.answers?.[who]).toEqual(["海边"]); expect(s.msgs[1]?.who).toBe(who); });
+it("keeps multiple selected choices for a multiple-choice question", () => { const s = initialState(); s.msgs.push({ id: "q", at: 0, who: "him", type: "quiz", quiz: { id: "q1", q: "喜欢什么？", options: ["日出", "月光"], multi: true } }); answerQuiz(s, "q", "me", ["日出", "月光"]); expect(s.msgs[0]?.answers?.me).toEqual(["日出", "月光"]); });
