@@ -5,5 +5,5 @@ import tailwindcss from "@tailwindcss/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { nitro } from "nitro/vite";
 export default defineConfig({
-  plugins: [tsconfigPaths(), tailwindcss(), tanstackStart({ server: { entry: "server" } }), react(), nitro({ preset: "node-server" })],
+  plugins: [tsconfigPaths(), tailwindcss(), tanstackStart({ server: { entry: "server" } }), react(), nitro({ preset: "netlify" })],
 });
