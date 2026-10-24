@@ -1,0 +1,17 @@
+{
+  "id": "/",
+  "name": "PREVIA",
+  "short_name": "PREVIA",
+  "description": "在世界的另一端，与你相爱。",
+  "lang": "zh-CN",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fafafa",
+  "theme_color": "#fafafa",
+  "icons": [
+    { "src": "/icons/previa-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/previa-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/previa-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
